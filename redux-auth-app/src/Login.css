@@ -1,0 +1,152 @@
+/* Reset base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background:url("/bg.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 5vh 1rem; 
+}
+
+/* Main container */
+.login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin: auto;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Input styling */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Password wrapper */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+}
+
+.show-hide-icon {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Button */
+button {
+  width: 100%;
+  background: #4A00E0;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #8E2DE2;
+}
+
+/* Link */
+.link {
+  margin-top: 14px;
+  color: #4A00E0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  body {
+    padding: 3vh 2vw;
+  }
+
+  .login-container {
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .input-field,
+  button {
+    font-size: 0.95rem;
+  }
+
+  .show-hide-icon {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 5vh 4vw;
+  }
+
+  .login-container {
+    padding: 2rem;
+  }
+}
+
+/* Landscape orientation handling */
+@media screen and (orientation: landscape) and (max-height: 480px) {
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+
+  .login-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+button {
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
