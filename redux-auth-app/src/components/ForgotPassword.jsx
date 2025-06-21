@@ -15,7 +15,7 @@ export default function ForgotPassword() {
     if (Object.values(form).some((val) => !val)) return setError("All fields required");
 
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).{8,}$/;
-    if (!regex.test(form.newPassword)) return setError("Weak password");
+    if (!regex.test(form.newPassword)) return setError("Minimum 8 char., one uppercase, one lowercase,one special character @#$%&");
 
     try {
       await axios.post("http://localhost:5000/reset-password", form);
