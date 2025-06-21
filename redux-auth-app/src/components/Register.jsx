@@ -17,7 +17,7 @@ export default function Register() {
   const handleSubmit = async () => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).{8,}$/;
     if (form.password !== form.confirmPassword) return setError("Passwords don't match");
-    if (!regex.test(form.password)) return setError("Weak password");
+    if (!regex.test(form.password)) return setError("Minimum 8 char., one uppercase, one lowercase,one special character @#$%&");
 
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
@@ -27,7 +27,13 @@ export default function Register() {
       setSuccess("Registered! Redirecting...");
       setTimeout(() => navigate("/"), 3000);
     } catch {
-      setError("Registration failed");
+      const requiredFields = ["name", "email", "mobile", "password", "confirmPassword","photo"];
+      const emptyFields = requiredFields.filter(field => !form[field]);
+      if (emptyFields.length > 0) {
+        setError(`Registration failed. Please fill in: ${emptyFields.join(", ")}`);
+      } else {
+        setError("Registration failed. Please try again.");
+      }
     }
   };
 
